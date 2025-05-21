@@ -1,57 +1,18 @@
-import React, { use, useEffect, useState } from "react";
-import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { useParams } from "react-router";
-import { AuthContext } from "../Context/AuthProvider";
+import React from "react";
+import { AiFillLike } from "react-icons/ai";
+import { GrUpdate } from "react-icons/gr";
+import { MdDelete } from "react-icons/md";
 
-const RecipeDetails = () => {
-  const { id } = useParams();
-  const [details, setDetails] = useState([]);
-  const {user} = use(AuthContext);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/recipes/${id}`)
-      .then((res) => res.json())
-      .then((data) => setDetails(data));
-  }, [details, id]);
-  console.log(details)
-
-  const [showLike, setShowLike] = useState(false);
-
-  const {
-    _id,
-    title,
-    photo,
-    category,
-    instructions,
-    ingredients,
-    likeCount,
-    time,
-    cuisineType,
-    email
-  } = details;
-
-  const hendelLike = (id) => {
-    if(email === user.email){
-        return
-    }
-    setShowLike(true);
-    const updateLike = { likeCount: likeCount + 1 };
-    console.log(user.email);
-
-    //* Like set db
-    fetch(`http://localhost:5000/recipes/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateLike),
-    })
-      .then((res) => res.json())
-      .then(() => {
-      });
-  };
-  console.log();
-
+const MyRecipe_details = ({recipe}) => {
+    const {_id,
+        title,
+        photo,
+        category,
+        instructions,
+        ingredients,
+        likeCount,
+        time,
+        cuisineType,} = recipe
   return (
     <div className="mx-2">
       <div className="flex flex-col lg:flex-row gap-10 items-center py-15 my-8 bg-white shadow-md rounded-2xl overflow-hidden p-6 space-y-6 lg:space-y-0 lg:space-x-6 max-w-5xl mx-auto">
@@ -71,13 +32,20 @@ const RecipeDetails = () => {
               Cuisine type: {cuisineType}
             </span>
           </div>
+          <div className="flex gap-5">
           <button
-            onClick={() => hendelLike(_id)}
             className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
           >
-            {showLike ? <AiFillLike size={24} /> : <AiOutlineLike size={23} />}{" "}
-            Like
+            <GrUpdate size={23}/>
+            Update
           </button>
+          <button
+            className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
+          >
+            <MdDelete size={23}/>
+            Delete
+          </button>
+          </div>
         </div>
 
         <div className="h-60 bg-black w-[1px] lg:block hidden"></div>
@@ -114,4 +82,4 @@ const RecipeDetails = () => {
   );
 };
 
-export default RecipeDetails;
+export default MyRecipe_details;

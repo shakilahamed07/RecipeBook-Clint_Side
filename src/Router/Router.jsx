@@ -59,9 +59,7 @@ export const router = createBrowserRouter([
           <PriveteRoute>
             <RecipeDetails></RecipeDetails>
           </PriveteRoute>
-        ),
-        hydrateFallbackElement: <Loader></Loader>,
-        loader: ({params})=> fetch(`http://localhost:5000/recipes/${params.id}`),
+        )
       },
     ],
   },

@@ -16,14 +16,15 @@ const All_Recipe = () => {
   }
 
   return (
-    <div>
-        <div className="flex items-center justify-center w-fit mx-auto py-2 px-4 rounded-xl bg-secondary text-white mt-5">
+    <div className="mb-10">
+        <div className="flex items-center justify-center w-fit mx-auto py-2 px-4 rounded-xl bg-secondary text-white mt-5 ">
             <h2 className="text-xl font-medium mr-2">Filter:</h2>
             <select name="" onChange={hendleFilter} id="" className="border py-1 px-3  rounded-xl bg-white text-black">
                 <option value="">Select All</option>
                 <option value="Bengali">Bengali</option>
                 <option value="Chains">Chains</option>
                 <option value="Mexican">Mexican</option>
+                <option value="Americano">Americano</option>
                 <option value="Indian">Indian</option>
             </select>
         </div>

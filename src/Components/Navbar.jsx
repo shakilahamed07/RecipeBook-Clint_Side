@@ -44,7 +44,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-white/1 backdrop-blur-sm border-b border-gray-100 justify-between max-w-[1350px] mx-auto ">
+    <div className="navbar  bg-white/1 backdrop-blur-sm border-b border-gray-100 justify-between max-w-[1350px] mx-auto ">
       <div className="navbar-start">
         <div className="dropdown">
           <div
@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-20 "
           >
             {Links}
             <Link
@@ -119,7 +119,7 @@ const Navbar = () => {
             <div
               className={`${
                 showmodal ? "hidden" : "block"
-              } border absolute top-12 right-0 w-60 bg-base-100  border-gray-200  py-5 px-3 text-center rounded-2xl shadow-xl`}
+              } border absolute top-12 right-0 w-60 bg-base-100  border-gray-200  py-5 px-3 text-center rounded-2xl shadow-xl z-100`}
             >
               <h1 className="mb-3 text-2xl font-bold">{user?.displayName}</h1>
               <button onClick={hendleLogout} className="btn btn-primary rounded-md border-none mt-4">

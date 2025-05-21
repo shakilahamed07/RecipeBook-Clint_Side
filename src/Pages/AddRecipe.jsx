@@ -51,7 +51,7 @@ const AddRecipe = () => {
 
   return (
     <div>
-      <div className="mx-5">
+      <div className="mx-3">
         <h1 className="text-3xl font-bold text-center mb-3 mt-10">
           Add Recipe
         </h1>
@@ -129,9 +129,9 @@ const AddRecipe = () => {
               />
             </fieldset>
             {/* redio */}
-            <fieldset className="fieldset rounded-box  py-5 max-w-2xl ">
+            <fieldset className="fieldset rounded-box  py-5 max-w-2xl">
               <label className="text-xl mb-1">Category</label>
-              <div className="flex gap-5">
+              <div className="flex md:gap-5 gap-2">
               <label className="flex items-center">
                 <input type="checkbox" name="breakfast" defaultChecked value="Breakfast" className="mr-2" />
                 Breakfast

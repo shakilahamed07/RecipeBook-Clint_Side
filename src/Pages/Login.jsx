@@ -57,9 +57,9 @@ const Login = () => {
 
   return (
     <div className="mx-3">
-      <div className="card  bg-base-100 w-full max-w-md px-10 py-5 rounded-3xl shrink-0 shadow-xl mx-auto my-15 ">
+      <div className="card  w-full max-w-md px-10 py-5 rounded-3xl shrink-0 shadow-xl mx-auto my-15 ">
       <div className="card-body">
-        <h1 className="font-bold text-2xl text-center ">Login Now</h1>
+        <h1 className="font-bold text-2xl text-center -z-1">Login Now</h1>
         {/* Google */}
         <button onClick={hendleGoogleLogin} className="btn mt-5 hover:bg-primary border-primary hover:text-white bg-white text-black rounded-3xl">
           <svg
