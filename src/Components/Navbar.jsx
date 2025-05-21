@@ -31,12 +31,12 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/add-recipe" className="font-medium">
+        <NavLink to="/add-recipe" className={`${user? 'block': 'hidden'} font-medium`}>
           Add Recipe
         </NavLink>
       </li>
       <li>
-        <NavLink to="/my-recipe" className="font-medium">
+        <NavLink to="/my-recipe" className={`${user? 'block': 'hidden'} font-medium`}>
           My Recipe
         </NavLink>
       </li>
@@ -107,7 +107,7 @@ const Navbar = () => {
             Register
           </Link>
     
-        {user || (
+        {user && (
           <>
             <div onClick={() => setShowModal(!showmodal)}>
               <img
@@ -119,10 +119,10 @@ const Navbar = () => {
             <div
               className={`${
                 showmodal ? "hidden" : "block"
-              } border absolute top-12 right-0 w-60 bg-base-100  border-gray-200 rounded-md py-5 px-3 text-center `}
+              } border absolute top-12 right-0 w-60 bg-base-100  border-gray-200  py-5 px-3 text-center rounded-2xl shadow-xl`}
             >
               <h1 className="mb-3 text-2xl font-bold">{user?.displayName}</h1>
-              <button onClick={hendleLogout} className="btn btn-primary mt-4">
+              <button onClick={hendleLogout} className="btn btn-primary rounded-md border-none mt-4">
                 Log Out
               </button>
             </div>

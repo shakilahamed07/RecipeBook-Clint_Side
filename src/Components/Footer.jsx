@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="bg-base-200">
-      <footer className="footer sm:footer-horizontal  max-w-[1350px] mx-auto text-base-content py-10 ">
+      <footer className="footer sm:footer-horizontal  max-w-[1350px] mx-auto text-base-content py-10 px-5 lg:px-0">
         <aside>
           <img className="w-15" src={Logo} alt="" />
           <h1 className="text-2xl font-bold">

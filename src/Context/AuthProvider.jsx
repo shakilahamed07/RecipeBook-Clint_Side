@@ -51,7 +51,6 @@ const AuthProvider = ({children}) => {
         )
     },[])
 
-    const a = 10000;
 
     const authData = {
         user,
@@ -62,7 +61,6 @@ const AuthProvider = ({children}) => {
         loader,
         updateUser,
         passwordReset,
-        a
     }
 
     return (
