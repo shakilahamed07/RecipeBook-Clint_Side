@@ -1,21 +1,39 @@
-import React, { use } from "react";
-import { useNavigate } from "react-router";
-import Swal from "sweetalert2";
-import { AuthContext } from "../Context/AuthProvider";
+import React, { useState } from 'react';
+import { useLoaderData, useNavigate} from 'react-router';
+import Swal from 'sweetalert2';
 
-const AddRecipe = () => {
+const Updaterecipe = () => {
+    const navigate = useNavigate();
+    const recipe = useLoaderData();
+    const {
+        _id,
+        title,
+        photo,
+        category,
+        instructions,
+        ingredients,
+        time,
+        cuisineType,
+    } = recipe;
+    
+    const [select , setSelect] = useState(cuisineType)
+    const hendleSelect = (e)=>{
+        setSelect(e.target.value)
+    }
 
-    const {user} = use(AuthContext);
-    const navigate =useNavigate()
+    const [isl, setIsL] = useState(category.lunch);
+    const [isB, setIsB] = useState(category.breakfast);
+    const [isD, setIsD] = useState(category.dinner);
+    const [isDe, setIsDe] = useState(category.Dessert);
+    const [isV, setIsV] = useState(category.Vegan);
 
-    const hendleAddRecipe = (e) =>{
+    const hendleUpdate = (e) =>{
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const {title, photo, ingredients, instructions, time, CuisineType , ...rest} =  Object.fromEntries(formData.entries())
 
-        const newRecipe = {
-            email: user.email,
+        const updateRecipe = {
             title,
             photo,
             ingredients,
@@ -23,40 +41,41 @@ const AddRecipe = () => {
             time,
             cuisineType: CuisineType,
             category: rest,
-            likeCount: 0
         }
         
-        //* POST database
-        fetch('http://localhost:5000/recipes', {
-            method: 'POST',
+        // //* Update recipe database
+        fetch(`http://localhost:5000/recipes/${_id}`, {
+            method: 'PATCH',
             headers:{
                 'content-type': 'application/json'
             },
-            body:JSON.stringify(newRecipe)
+            body:JSON.stringify(updateRecipe)
         })
         .then(res=>res.json())
         .then(data=>{
-            if(data.insertedId){
+            if(data.modifiedCount){
                 Swal.fire({
                     title: "Drag me!",
                     icon: "success",
                     draggable: true,
                     timer: 1500
                   });
-                  navigate('/')
+                  console.log(data)
+                  navigate('/my-recipe')
             }
         })
     }
+    
 
 
-  return (
-    <div>
-      <div className="mx-3">
-        <h1 className="text-3xl font-bold text-center mb-3 mt-10 ">
-          Add Recipe
+    return (
+        <div>
+      <div className="md:mx-8 mx-3">
+        <h1 className="text-3xl font-bold text-center mb-3 mt-10">
+          Update Recipe
         </h1>
 
-        <form onSubmit={hendleAddRecipe}>
+        <form onSubmit={hendleUpdate}>
           <div className="grid sm:grid-cols-2 sm:gap-x-10 md:gap-x-20">
             {/*Title*/}
             <fieldset className="fieldset max-w-2xl rounded-box  py-5">
@@ -65,6 +84,7 @@ const AddRecipe = () => {
                 type="text"
                 name="title"
                 className="input w-full   rounded-2xl border-primary focus:outline-none"
+                defaultValue={title}
                 placeholder="Recipe title.."
                 required
               />
@@ -77,6 +97,7 @@ const AddRecipe = () => {
                 name="photo"
                 className="input w-full   rounded-2xl border-primary focus:outline-none"
                 placeholder="Image URL"
+                defaultValue={photo}
                 required
               />
             </fieldset>
@@ -85,7 +106,9 @@ const AddRecipe = () => {
               <label className="text-xl mb-1">CuisineType</label>
               <select
                 name="CuisineType"
-                className="input w-full  rounded-2xl border-primary focus:outline-none"
+                onChange={hendleSelect}
+                value={select}
+                className="input w-full rounded-2xl border-primary focus:outline-none"
               >
                 <option value="">--Select one--</option>
                 <option value="Americano">Americano</option>
@@ -101,6 +124,7 @@ const AddRecipe = () => {
               <input
                 type="number"
                 name="time"
+                defaultValue={time}
                 className="input w-full rounded-2xl border-primary focus:outline-none"
                 placeholder="Time in number"
                 required
@@ -112,6 +136,7 @@ const AddRecipe = () => {
               <input
                 type="text"
                 name="ingredients"
+                defaultValue={ingredients}
                 className="input w-full  pt-6 pb-6 rounded-2xl border-primary focus:outline-none"
                 placeholder="ingredients"
                 required
@@ -122,6 +147,7 @@ const AddRecipe = () => {
               <label className="text-xl mb-1">Instructions</label>
               <input
                 type="text"
+                defaultValue={instructions}
                 name="instructions"
                 className="input w-full  pt-6 pb-6 rounded-2xl border-primary focus:outline-none"
                 placeholder="instructions"
@@ -133,25 +159,25 @@ const AddRecipe = () => {
               <label className="text-xl mb-1">Category</label>
               <div className="flex md:gap-5 gap-2">
               <label className="flex items-center">
-                <input type="checkbox" name="breakfast" defaultChecked value="Breakfast" className="mr-2" />
+                <input type="checkbox"  name="breakfast" checked={isB} onChange={(e) => setIsB(e.target.checked)} value="Breakfast" className="mr-2" />
                 Breakfast
               </label>
 
               <label className="flex items-center">
-                <input type="checkbox" name="lunch" value="Lunch" className="mr-2" />
+                <input type="checkbox" checked={isl} onChange={(e) => setIsL(e.target.checked)}  name="lunch" value="Lunch" className="mr-2" />
                 Lunch
               </label>
 
               <label className="flex items-center">
-                <input type="checkbox" name="dinner" value="Dinner" className="mr-2" />
+                <input type="checkbox" name="dinner" value="Dinner" checked={isD} onChange={(e) => setIsD(e.target.checked)} className="mr-2" />
                 Dinner
               </label>
               <label className="flex items-center">
-                <input type="checkbox" name="Dessert" value="Dessert" className="mr-2" />
+                <input type="checkbox" name="Dessert" checked={isDe} onChange={(e) => setIsDe(e.target.checked)} value="Dessert" className="mr-2" />
                 Dessert
               </label>
               <label className="flex items-center">
-                <input type="checkbox" name="Vegan" value="Vegan" className="mr-2" />
+                <input type="checkbox" name="Vegan" checked={isV} onChange={(e) => setIsV(e.target.checked)} value="Vegan" className="mr-2" />
                 Vegan
               </label>
               </div>
@@ -160,15 +186,15 @@ const AddRecipe = () => {
           <div className="text-center mt-9">
             <button
               type="submit"
-              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-30 mb-10"
+              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-28 mb-10"
             >
-              Add Recipe
+              Update Recipe
             </button>
           </div>
         </form>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddRecipe;
+export default Updaterecipe;

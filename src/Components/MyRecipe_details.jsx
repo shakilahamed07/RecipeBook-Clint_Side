@@ -1,8 +1,9 @@
 import React from "react";
 import { GrUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router";
 
-const MyRecipe_details = ({ recipe, hendleDelete, hendleUpdate }) => {
+const MyRecipe_details = ({ recipe, hendleDelete}) => {
   const {
     _id,
     title,
@@ -36,13 +37,12 @@ const MyRecipe_details = ({ recipe, hendleDelete, hendleUpdate }) => {
             </span>
           </div>
           <div className="flex gap-5">
-            <button
-              onClick={() => hendleUpdate(_id)}
+            <Link to={`/update-recipe/${_id}`}
               className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
             >
               <GrUpdate size={23} />
               Update
-            </button>
+            </Link>
             <button
               onClick={() => hendleDelete(_id)}
               className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"

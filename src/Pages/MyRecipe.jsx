@@ -13,9 +13,6 @@ const MyRecipe = () => {
       .then((data) => setMyRecipe(data));
   }, [myRecipe]);
 
-  const hendleUpdate = (id) => {
-    console.log(id);
-  };
   const hendleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -53,7 +50,6 @@ const MyRecipe = () => {
         <MyRecipe_details
           recipe={recipe}
           hendleDelete={hendleDelete}
-          hendleUpdate={hendleUpdate}
           key={recipe._id}
         />
       ))}

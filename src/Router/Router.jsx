@@ -11,6 +11,7 @@ import MyRecipe from "../Pages/MyRecipe";
 import RecipeDetails from "../Pages/RecipeDetails";
 import PriveteRoute from "./PriveteRoute";
 import Loader from "../Components/Loader";
+import Updaterecipe from "../Pages/Updaterecipe";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,16 @@ export const router = createBrowserRouter([
             <RecipeDetails></RecipeDetails>
           </PriveteRoute>
         )
+      },
+      {
+        path: "/update-recipe/:id",
+        element: (
+          <PriveteRoute>
+            <Updaterecipe/>
+          </PriveteRoute>
+        ),
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({params})=> fetch(`http://localhost:5000/recipes/${params.id}`)
       },
     ],
   },
