@@ -1,18 +1,21 @@
 import React from "react";
-import { AiFillLike } from "react-icons/ai";
 import { GrUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 
-const MyRecipe_details = ({recipe}) => {
-    const {_id,
-        title,
-        photo,
-        category,
-        instructions,
-        ingredients,
-        likeCount,
-        time,
-        cuisineType,} = recipe
+const MyRecipe_details = ({ recipe, hendleDelete, hendleUpdate }) => {
+  const {
+    _id,
+    title,
+    photo,
+    category,
+    instructions,
+    ingredients,
+    likeCount,
+    time,
+    cuisineType,
+  } = recipe;
+
+
   return (
     <div className="mx-2">
       <div className="flex flex-col lg:flex-row gap-10 items-center py-15 my-8 bg-white shadow-md rounded-2xl overflow-hidden p-6 space-y-6 lg:space-y-0 lg:space-x-6 max-w-5xl mx-auto">
@@ -33,18 +36,20 @@ const MyRecipe_details = ({recipe}) => {
             </span>
           </div>
           <div className="flex gap-5">
-          <button
-            className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
-          >
-            <GrUpdate size={23}/>
-            Update
-          </button>
-          <button
-            className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
-          >
-            <MdDelete size={23}/>
-            Delete
-          </button>
+            <button
+              onClick={() => hendleUpdate(_id)}
+              className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
+            >
+              <GrUpdate size={23} />
+              Update
+            </button>
+            <button
+              onClick={() => hendleDelete(_id)}
+              className="mt-4 bg-primary hover:bg-secondary text-white px-4 py-1.5 rounded-full font-bold w-fit flex items-center gap-2"
+            >
+              <MdDelete size={23} />
+              Delete
+            </button>
           </div>
         </div>
 
