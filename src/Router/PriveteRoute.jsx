@@ -10,7 +10,7 @@ const PriveteRoute = ({children}) => {
     if(loader){
         return <Loader></Loader>
     }
-    else if(!user && !user.email){
+    else if(!user){
         return <Navigate state={location.pathname} to='/login'></Navigate>
     }
     else{

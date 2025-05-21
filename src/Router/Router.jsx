@@ -10,6 +10,7 @@ import AddRecipe from "../Pages/AddRecipe";
 import MyRecipe from "../Pages/MyRecipe";
 import RecipeDetails from "../Pages/RecipeDetails";
 import PriveteRoute from "./PriveteRoute";
+import Loader from "../Components/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/all-recipe",
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ()=> fetch('http://localhost:5000/recipes'),
         Component: All_Recipe,
       },
       {
@@ -51,12 +54,14 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/add-recipe",
+        path: "/recipe-details/:id",
         element: (
           <PriveteRoute>
             <RecipeDetails></RecipeDetails>
           </PriveteRoute>
         ),
+        hydrateFallbackElement: <Loader></Loader>,
+        loader: ({params})=> fetch(`http://localhost:5000/recipes/${params.id}`),
       },
     ],
   },

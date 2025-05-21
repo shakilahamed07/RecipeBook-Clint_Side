@@ -1,5 +1,4 @@
 import React from "react";
-import RecipeCard from "./RecipeCard";
 import { Link } from "react-router";
 
 const TopRecipe = () => {
@@ -13,12 +12,7 @@ const TopRecipe = () => {
       </p>
 
       <div className="grid grid-cols-3 gap-8 max-w-[1210px] mx-auto">
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
-        <RecipeCard />
+        
       </div>
 
       <div className="text-center mt-15">
