@@ -14,7 +14,7 @@ const Footer = () => {
           <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
           <p>
             Development By{" "}
-            <a className="font-medium hover:underline" href="">
+            <a className="font-medium hover:underline" target="blank" href="https://www.facebook.com/share/1HXNLBsofY/">
               Shakil Ahamed
             </a>
           </p>

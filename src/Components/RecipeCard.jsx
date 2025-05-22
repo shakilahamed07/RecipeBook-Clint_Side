@@ -18,9 +18,9 @@ const RecipeCard = ({recipe}) => {
           <h1 className="text-2xl font-bold mb-6 ">
             {title}
           </h1>
-          <div className="flex gap-6 mb-10">
-            <span className="bg-base-200 px-3 py-1 rounded-full font-medium">Like : {likeCount}</span>
-            <span className="bg-base-200 px-3 py-1 rounded-full font-medium">Type: {cuisineType}</span>
+          <div className="flex gap-3 mb-10">
+            <span className="bg-base-200 px-3 py-1 rounded-full">Like : {likeCount}</span>
+            <span className="bg-base-200 px-3 py-1 rounded-full">Type: {cuisineType}</span>
           </div>
           <div className="text-center mb-8">
             <Link
