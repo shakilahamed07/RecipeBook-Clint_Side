@@ -8,7 +8,7 @@ const MyRecipe = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/recipes/myrecipe/${user.email}`)
+    fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/myrecipe/${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyRecipe(data));
   }, [myRecipe]);
@@ -24,7 +24,7 @@ const MyRecipe = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/recipes/${id}`, {
+        fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/${id}`, {
           method: "DELETE",
         })
         .then((res) => res.json())

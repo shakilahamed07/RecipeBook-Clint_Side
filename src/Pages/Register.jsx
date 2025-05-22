@@ -51,7 +51,7 @@ const Register = () => {
 
   return (
     <div className="mx-3">
-      <div className="card w-full max-w-md py-5 rounded-3xl shrink-0 shadow-2xl mx-auto my-15  px-10">
+      <div className="card w-full max-w-md py-5 rounded-3xl shrink-0 shadow-2xl mx-auto my-15  px-10 ">
         <div className="card-body">
           <h1 className="font-bold text-2xl text-center -z-10">
             Register Now

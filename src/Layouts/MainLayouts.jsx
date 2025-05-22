@@ -5,6 +5,7 @@ import Footer from '../Components/Footer';
 import { ToastContainer } from 'react-toastify';
 
 const MainLayouts = () => {
+    
     return (
         <div>
             <header>

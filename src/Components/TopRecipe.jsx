@@ -7,12 +7,12 @@ const TopRecipe = () => {
   const [topRecipe, setTopRecipe] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/recipes/toprecipe`)
+    fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/toprecipe`)
       .then((res) => res.json())
       .then((data) => setTopRecipe(data));
   }, []);
 
-
+  
   return (
     <div className="mt-20 mb-15">
       <h1 className="text-3xl font-bold text-center">Top Recipe</h1>

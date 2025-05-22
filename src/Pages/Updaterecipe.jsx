@@ -44,7 +44,7 @@ const Updaterecipe = () => {
         }
         
         // //* Update recipe database
-        fetch(`http://localhost:5000/recipes/${_id}`, {
+        fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/${_id}`, {
             method: 'PATCH',
             headers:{
                 'content-type': 'application/json'

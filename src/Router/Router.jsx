@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
       {
         path: "/all-recipe",
         hydrateFallbackElement: <Loader></Loader>,
-        loader: ()=> fetch('http://localhost:5000/recipes'),
+        loader: ()=> fetch('https://recipe-book-server-side-ten.vercel.app/recipes'),
         Component: All_Recipe,
       },
       {
@@ -70,7 +70,7 @@ export const router = createBrowserRouter([
           </PriveteRoute>
         ),
         hydrateFallbackElement: <Loader></Loader>,
-        loader: ({params})=> fetch(`http://localhost:5000/recipes/${params.id}`)
+        loader: ({params})=> fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/${params.id}`)
       },
     ],
   },
