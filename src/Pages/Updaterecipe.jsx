@@ -70,7 +70,7 @@ const Updaterecipe = () => {
 
     return (
         <div>
-      <div className="md:mx-8 mx-3">
+      <div className="shadow-xl md:px-8 rounded-2xl md:mx-5 mx-2 px-2 my-2 pt-2 mb-10">
         <h1 className="text-3xl font-bold text-center mb-3 mt-10">
           Update Recipe
         </h1>
@@ -157,7 +157,7 @@ const Updaterecipe = () => {
             {/* redio */}
             <fieldset className="fieldset rounded-box  py-5 max-w-2xl">
               <label className="text-xl mb-1">Category</label>
-              <div className="flex md:gap-5 gap-2">
+              <div className="flex md:gap-5 gap-2 flex-wrap">
               <label className="flex items-center">
                 <input type="checkbox"  name="breakfast" checked={isB} onChange={(e) => setIsB(e.target.checked)} value="Breakfast" className="mr-2" />
                 Breakfast
@@ -186,7 +186,7 @@ const Updaterecipe = () => {
           <div className="text-center mt-9">
             <button
               type="submit"
-              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-28 mb-10"
+              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-25 mb-10"
             >
               Update Recipe
             </button>

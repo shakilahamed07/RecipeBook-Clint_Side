@@ -50,7 +50,7 @@ const AddRecipe = () => {
 
 
   return (
-    <div>
+    <div className="shadow-xl md:px-8 rounded-2xl md:mx-5 mx-2 px-2 my-2 pt-2 mb-10">
       <div className="mx-3">
         <h1 className="text-3xl font-bold text-center mb-3 mt-10 ">
           Add Recipe
@@ -131,7 +131,7 @@ const AddRecipe = () => {
             {/* redio */}
             <fieldset className="fieldset rounded-box  py-5 max-w-2xl">
               <label className="text-xl mb-1">Category</label>
-              <div className="flex md:gap-5 gap-2">
+              <div className="flex md:gap-5 gap-2 flex-wrap">
               <label className="flex items-center">
                 <input type="checkbox" name="breakfast" defaultChecked value="Breakfast" className="mr-2" />
                 Breakfast
@@ -160,7 +160,7 @@ const AddRecipe = () => {
           <div className="text-center mt-9">
             <button
               type="submit"
-              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-30 mb-10"
+              className="border  border-primary text-white bg-primary font-bold rounded-full hover:bg-secondary py-2 md:px-50 px-25 mb-10"
             >
               Add Recipe
             </button>
