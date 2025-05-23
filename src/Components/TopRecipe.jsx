@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import RecipeCard from "./RecipeCard";
+import { Fade } from "react-awesome-reveal";
 
 const TopRecipe = () => {
-
   const [topRecipe, setTopRecipe] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,6 @@ const TopRecipe = () => {
       .then((data) => setTopRecipe(data));
   }, []);
 
-  
   return (
     <div className="mt-20 mb-15">
       <h1 className="text-3xl font-bold text-center">Top Recipe</h1>
@@ -22,11 +21,13 @@ const TopRecipe = () => {
         tested, trusted, and sure to satisfy every craving.
       </p>
 
-      <div className="grid lg:grid-cols-3 sm:grid-cols-2 px-2 gap-8 max-w-[1050px] mx-auto">
-        {
-          topRecipe.map(recipe => <RecipeCard recipe={recipe} key={recipe._id} />)
-        }
-      </div>
+      <Fade cascade>
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 px-2 gap-8 max-w-[1050px] mx-auto">
+          {topRecipe.map((recipe) => (
+            <RecipeCard recipe={recipe} key={recipe._id} />
+          ))}
+        </div>
+      </Fade>
 
       <div className="text-center mt-15">
         <Link
