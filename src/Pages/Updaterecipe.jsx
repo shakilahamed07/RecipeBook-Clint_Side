@@ -55,7 +55,7 @@ const Updaterecipe = () => {
         .then(data=>{
             if(data.modifiedCount){
                 Swal.fire({
-                    title: "Drag me!",
+                    title: "Recipe update successfully!",
                     icon: "success",
                     draggable: true,
                     timer: 1500
