@@ -38,7 +38,7 @@ const AddRecipe = () => {
         .then(data=>{
             if(data.insertedId){
                 Swal.fire({
-                    title: "Drag me!",
+                    title: "Successfully Add Recipe!",
                     icon: "success",
                     draggable: true,
                     timer: 1500
