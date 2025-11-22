@@ -8,7 +8,9 @@ const MyRecipe = () => {
   const { user } = use(AuthContext);
 
   useEffect(() => {
-    fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/myrecipe/${user.email}`)
+    fetch(
+      `https://recipe-book-server-side-ten.vercel.app/recipes/myrecipe/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyRecipe(data));
   }, [myRecipe]);
@@ -27,18 +29,18 @@ const MyRecipe = () => {
         fetch(`https://recipe-book-server-side-ten.vercel.app/recipes/${id}`, {
           method: "DELETE",
         })
-        .then((res) => res.json())
-        .then((data) => {
+          .then((res) => res.json())
+          .then((data) => {
             if (data) {
               console.log(data);
               Swal.fire({
                 title: "Deleted!",
                 text: "Your recipe has been deleted.",
                 icon: "success",
-                timer: 2000
+                timer: 2000,
               });
             }
-        });
+          });
       }
     });
     //* Like set db
@@ -46,13 +48,15 @@ const MyRecipe = () => {
 
   return (
     <div className="">
-      {myRecipe.map((recipe) => (
-        <MyRecipe_details
-          recipe={recipe}
-          hendleDelete={hendleDelete}
-          key={recipe._id}
-        />
-      ))}
+      {myRecipe.length < 1
+        ? <p className="text-3xl font-bold text-center mt-20 shadow-2xl py-20 rounded-2xl max-w-[350px] mx-auto">You have no recipe!</p>
+        : myRecipe.map((recipe) => (
+            <MyRecipe_details
+              recipe={recipe}
+              hendleDelete={hendleDelete}
+              key={recipe._id}
+            />
+          ))}
     </div>
   );
 };

@@ -22,10 +22,10 @@ const RecipeCard = ({recipe}) => {
             <span className="bg-base-200 px-3 py-1 rounded-full">Like : {likeCount}</span>
             <span className="bg-base-200 px-3 py-1 rounded-full">Type: {cuisineType}</span>
           </div>
-          <div className="text-center mb-8">
+          <div className="text-center mb-4">
             <Link
               to={`/recipe-details/${recipe._id}`}
-              className="border border-primary text-primary bg-none font-bold rounded-full hover:bg-primary hover:text-white py-2 px-19"
+              className="border border-primary bg-none font-bold rounded-full bg-primary text-white py-2 px-19"
             >
               VIEW DETAILS
             </Link>

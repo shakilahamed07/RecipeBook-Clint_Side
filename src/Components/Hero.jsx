@@ -1,5 +1,6 @@
 import React from "react";
 import { Slide } from "react-awesome-reveal";
+import { Link } from "react-router";
 import { useTypewriter } from "react-simple-typewriter";
 
 const Hero = () => {
@@ -22,9 +23,9 @@ const Hero = () => {
             creations, let your ideas flourish and uncover the perfect recipe
             waiting to be discovered.
           </p>
-          <button className="py-2 px-5 bg-primary rounded-full text-white">
+          <Link to={'/all-recipe'} className="py-2 px-5 bg-primary rounded-full text-white">
             Get Started
-          </button>
+          </Link>
         </Slide>
       </div>
     </div>
