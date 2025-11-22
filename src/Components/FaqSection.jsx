@@ -4,11 +4,11 @@ const FaqSection = () => {
   return (
     <div className="">
         <h1 className="text-3xl lg:mt-20 text-center font-bold">FAQ Section</h1>
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-base-100 p-8 md:p-16 space-y-8 md:space-y-0 mb-10 rounded-2xl mx-2">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-6 bg-base-100 p-8 md:p-10 space-y-8 md:space-y-0 mb-10 rounded-2xl mx-2">
         {/* Left - Image and person info */}
         <div className="relative w-full lg:w-1/2">
           <img
-            src="https://img.freepik.com/free-vector/online-survey-analysis-electronic-data-collection-digital-research-tool-computerized-study-analyst-considering-feedback-results-analysing-info-vector-isolated-concept-metaphor-illustration_335657-2807.jpg?ga=GA1.1.751526860.1746424154&semt=ais_hybrid&w=740" // Replace with actual image path
+            src="https://i.ibb.co.com/TMLdD7NL/Screenshot-2025-11-22-230848-removebg-preview.png" // Replace with actual image path
             alt=""
             className="rounded-xl mx-auto"
           />

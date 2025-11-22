@@ -7,6 +7,7 @@ const Shere = () => {
     "https://beingnutritious.com/wp-content/uploads/2023/03/Logo-mobile-400x140-1.jpg",
     "https://www.cacfp.org/wp-content/uploads/sites/1980/2019/04/NCA-Logo-2024-768x329.png",
     "https://www.bowlofdelicious.com/wp-content/uploads/2021/09/mobile-400.jpg",
+    "https://therecipeco.com/cdn/shop/files/The_Recipe_Logo_Full_Name_Olive.svg?v=1710274584&width=240"
   ];
 
   return (
